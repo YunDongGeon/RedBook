@@ -27,4 +27,6 @@ class RedbookItem(scrapy.Item):
     book_img = scrapy.Field()
     # 책 쇼핑몰 상세보기 주소
     book_url = scrapy.Field()
+    # 크롤링 시간
+    crawl_time = scrapy.Field()
     pass
