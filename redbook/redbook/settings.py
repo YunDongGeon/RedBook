@@ -13,13 +13,14 @@ BOT_NAME = 'redbook'
 
 SPIDER_MODULES = ['redbook.spiders']
 NEWSPIDER_MODULE = 'redbook.spiders'
+DOWNLOAD_DELAY = 2    # 250 ms of delay
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'redbook (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
