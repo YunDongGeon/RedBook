@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask import send_from_directory
-
+from module import dbModule
 app = Flask(__name__, static_url_path="/templates")
 
 app.debug - True
@@ -11,7 +11,14 @@ def serve_page(path):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    db_class = dbModule.Database()
+    sql = "select * from book_list order by crawl_time desc limit 6"
+    row = db_class.recentCrawledBook(sql)
+    print(row)
+    return render_template("index.html",
+                            result = None,
+                            resultData = row,
+                            resultUPDATE = None)
 
 if __name__ == "__main__":
     app.run()
