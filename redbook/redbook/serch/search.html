@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>search</title>
+    </head>
+    <body>
+
+        <input id="search" type="text">
+     <input id="btn" type="submit" value="검색">
+
+<!--        jquery 사용 데이터 검색-->
+        <script type='text/javascript' src='js/jquery-1.4.2.min.js'/>
+        <script type="text/javascript">
+            // jQuery code will be here
+            $(document).ready(function () {
+                load_data();
+
+                function load_data(query) {
+                    $.ajax({
+                        url : "localhost:8080/index.html",
+                        method : "post",
+                        data : {query:query},
+                        success : function (data) {
+                            $('#result').html(data);
+                        }
+                    })
+
+                }
+                $('search').onkeyup(function () {
+                    var search = $(search).val();  // 검색창에 입력된 데이터 값 가져오기
+                    if (search != ''){            // search가 비어있지 않다면 load_data에 파라미터로 담아
+                        load_data(search);        // 위의 function load_data(query)로 넘긴다.
+                    } else {
+                        load_data();
+                    }
+                })
+            })
+          </script>
+
+    </body>
+</html>
+
+
+
+
+
+
+
