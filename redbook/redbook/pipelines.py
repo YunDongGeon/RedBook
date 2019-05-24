@@ -4,30 +4,31 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-import pymysql.cursors
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
+from module import dbModule
 
 class RedbookPipeline(object):
     def __init__(self):
-        self.conn = pymysql.connect('localhost', 'root', '1234', 'redbook')
-        self.cursor = self.conn.cursor()
+        self.db_class = dbModule.Database()
 
     def process_item(self, item, spider):
         # create record if doesn't exist.
-        self.cursor.execute(
-            "insert into book_list(book_site, book_isbn, book_cat, book_title, book_price, book_author, book_publish, book_publish_date, book_img, book_url, crawl_time) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-            (item['book_site'],
-             item['book_isbn'],
-             item['book_cat'],
-             item['book_title'],
-             item['book_price'],
-             item['book_author'],
-             item['book_publish'],
-             item['book_publish_date'],
-             item['book_img'],
-             item['book_url'],
-             item['crawl_time']))
-        self.conn.commit()
+        query ={
+            "site" : item['book_site'],
+            "isbn" : item['book_isbn'],
+            "category" : item['book_cat'],
+            "title" : item['book_title'],
+            "price" : item['book_price'],
+            "author" : item['book_author'],
+            "publish" : item['book_publish'],
+            "publish_date" : item['book_publish_date'],
+            "img" : item['book_img'],
+            "url" : item['book_url'],
+            "crawled_time" : item['crawl_time']
+        }
+        self.db_class.insert(query)
         return item
     def close_spider(self, spider):
-        self.cursor.close()
-        self.connection.close()
+        self.db_class.dbclose()

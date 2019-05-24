@@ -51,7 +51,7 @@
             </div>
         </div>
     </section>
-            <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/bg-2.png);">
+    <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/bg-2.png);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </section>
-        <section class="new_arrivals_area section-padding-80 clearfix">
+    <section class="new_arrivals_area section-padding-80 clearfix">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -80,75 +80,15 @@
             <div class="row">
                 <div class="col-12">
                     <div class="popular-products-slides owl-carousel">
-                        <a href="{{resultData[0].book_url}}">
+                        <a href="{{ json[0]['url'] }}">
                             <div class="single-product-wrapper">
                                 <div class="product-img">
-                                    <img src="{{ resultData[0].book_img }}" alt="">
+                                    <img src="{{ json[0]['img'] }}" alt="">
                                 </div>
                                 <div class="product-description">
-                                    <span>{{ resultData[0].book_site }}</span>
-                                    <h6>{{ resultData[0].book_title }}</h6>
-                                    <p class="product-price">{{ resultData[0].book_price }}원</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{resultData[1].book_url}}">
-                            <div class="single-product-wrapper">
-                                <div class="product-img">
-                                    <img src="{{ resultData[1].book_img }}" alt="">
-                                </div>
-                                <div class="product-description">
-                                    <span>{{ resultData[1].book_site }}</span>
-                                    <h6>{{ resultData[1].book_title }}</h6>
-                                    <p class="product-price">{{ resultData[1].book_price }}원</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{resultData[2].book_url}}">
-                            <div class="single-product-wrapper">
-                                <div class="product-img">
-                                    <img src="{{ resultData[2].book_img }}" alt="">
-                                </div>
-                                <div class="product-description">
-                                    <span>{{ resultData[2].book_site }}</span>
-                                    <h6>{{ resultData[2].book_title }}</h6>
-                                    <p class="product-price">{{ resultData[2].book_price }}원</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{resultData[3].book_url}}">
-                            <div class="single-product-wrapper">
-                                <div class="product-img">
-                                    <img src="{{ resultData[3].book_img }}" alt="">
-                                </div>
-                                <div class="product-description">
-                                    <span>{{ resultData[3].book_site }}</span>
-                                    <h6>{{ resultData[3].book_title }}</h6>
-                                    <p class="product-price">{{ resultData[3].book_price }}원</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{resultData[4].book_url}}">
-                            <div class="single-product-wrapper">
-                                <div class="product-img">
-                                    <img src="{{ resultData[4].book_img }}" alt="">
-                                </div>
-                                    <div class="product-description">
-                                    <span>{{ resultData[4].book_site }}</span>
-                                    <h6>{{ resultData[4].book_title }}</h6>
-                                    <p class="product-price">{{ resultData[4].book_price }}원</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{resultData[5].book_url}}">
-                            <div class="single-product-wrapper">
-                                 <div class="product-img">
-                                    <img src="{{ resultData[5].book_img }}" alt="">
-                                </div>
-                                <div class="product-description">
-                                    <span>{{ resultData[5].book_site }}</span>
-                                    <h6>{{ resultData[5].book_title }}</h6>
-                                    <p class="product-price">{{ resultData[5].book_price }}원</p>
+                                    <span>{{ json[0]["site"] }}</span>
+                                    <h6>{{ json[0]["title"] }}</h6>
+                                    <p class="product-price">{{ json[0]["price"] }}원</p>
                                 </div>
                             </div>
                         </a>
