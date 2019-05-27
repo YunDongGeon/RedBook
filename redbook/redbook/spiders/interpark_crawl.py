@@ -30,7 +30,8 @@ class InterparkCrawlSpider(CrawlSpider):
         item["book_price"] = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[4]/div[1]/ul/li[1]/div/p[1]/span[1]/text()')[0].extract()
         item["book_author"] = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[2]/ul/li[1]/a/text()')[0].extract()
         item["book_publish"] = response.xpath('//*[@id="hdelvMafcEntrNm"]/text()')[0].extract()
-        item["book_publish_date"] = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[2]/ul/li[3]/text()')[0].extract()
+        publish_date = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[2]/ul/li[3]/text()')[0].extract()
+        item["book_publish_date"] = publish_date[5:]
         item["book_img"] = response.xpath('//*[@id="inc_optionWrap"]/div[1]/div[1]/div/div/div/img/@src')[0].extract()
         item["book_url"] = response.request.url
         item["crawl_time"] = datetime.now()

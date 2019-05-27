@@ -1,5 +1,4 @@
-from flask import Flask, render_template
-from flask import send_from_directory
+from flask import Flask, render_template, send_from_directory, jsonify, json
 from module import dbModule
 from pprint import pprint
 app = Flask(__name__, static_url_path="/templates")
@@ -14,6 +13,7 @@ def serve_page(path):
 def index():
     db_class = dbModule.Database()
     results = db_class.recentCrawledBook()
+    results = json.loads(results)
     pprint(results)
     return render_template("index.html",
                            json=results)
