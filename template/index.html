@@ -8,7 +8,7 @@
     <title>찾았다-요놈</title>
     <link rel="icon" href="img/core-img/favicon.png">
     <link rel="stylesheet" href="css/core-style.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -51,7 +51,7 @@
             </div>
         </div>
     </section>
-            <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/bg-2.png);">
+    <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/bg-2.png);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </section>
-        <section class="new_arrivals_area section-padding-80 clearfix">
+    <section class="new_arrivals_area section-padding-80 clearfix">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -80,144 +80,78 @@
             <div class="row">
                 <div class="col-12">
                     <div class="popular-products-slides owl-carousel">
-                        <div class="single-product-wrapper">
-                            <div class="product-img">
-                                <img src="img/product-img/new1.jpg" alt="">
-                                <div class="product-badge offer-badge">
-                                    <span>-10%</span>
+                        <a href="{{ json[0]['url'] }}">
+                            <div class="single-product-wrapper">
+                                <div class="product-img">
+                                    <img src="{{ json[0]['img'] }}" alt="">
                                 </div>
-                                <div class="product-favourite">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                            <div class="product-description">
-                                <span>yes24</span>
-                                <a href="single-product-details.html">
-                                    <h6>깃털 도둑</h6>
-                                </a>
-                                <p class="product-price"><span class="old-price">16,000원</span> 14,400원</p>
-                                <div class="hover-content">
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">장바구니에 넣기</a>
-                                    </div>
+                                <div class="product-description">
+                                    <span>{{ json[0]["site"] }}</span>
+                                    <h6>{{ json[0]["title"] }}</h6>
+                                    <p class="product-price">{{ json[0]["price"] }}원</p>
                                 </div>
                             </div>
-                        </div>
-                                                <div class="single-product-wrapper">
-                            <div class="product-img">
-                                <img src="img/product-img/new2.jpg" alt="">
-                                <div class="product-badge offer-badge">
-                                    <span>-10%</span>
+                        </a>
+                        <a href="{{ json[1]['url'] }}">
+                            <div class="single-product-wrapper">
+                                <div class="product-img">
+                                    <img src="{{ json[1]['img'] }}" alt="">
                                 </div>
-                                <div class="product-favourite">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                            <div class="product-description">
-                                <span>옥션</span>
-                                <a href="single-product-details.html">
-                                    <h6>죽음1</h6>
-                                </a>
-                                <p class="product-price"><span class="old-price">14,000원</span> 12,600원</p>
-                                <div class="hover-content">
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">장바구니에 넣기</a>
-                                    </div>
+                                <div class="product-description">
+                                    <span>{{ json[1]["site"] }}</span>
+                                    <h6>{{ json[1]["title"] }}</h6>
+                                    <p class="product-price">{{ json[1]["price"] }}원</p>
                                 </div>
                             </div>
-                        </div>
-                                                <div class="single-product-wrapper">
-                            <div class="product-img">
-                                <img src="img/product-img/new3.jpg" alt="">
-                                <div class="product-badge offer-badge">
-                                    <span>-10%</span>
+                        </a>
+                        <a href="{{ json[2]['url'] }}">
+                            <div class="single-product-wrapper">
+                                <div class="product-img">
+                                    <img src="{{ json[2]['img'] }}" alt="">
                                 </div>
-                                <div class="product-favourite">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                            <div class="product-description">
-                                <span>인터파크</span>
-                                <a href="single-product-details.html">
-                                    <h6>팀 쿡 Tim Cook</h6>
-                                </a>
-                                <p class="product-price"><span class="old-price">25.000원</span> 22,500원</p>
-                                <div class="hover-content">
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">장바구니에 넣기</a>
-                                    </div>
+                                <div class="product-description">
+                                    <span>{{ json[2]["site"] }}</span>
+                                    <h6>{{ json[2]["title"] }}</h6>
+                                    <p class="product-price">{{ json[2]["price"] }}원</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="single-product-wrapper">
-                            <div class="product-img">
-                                <img src="img/product-img/new4.jpg" alt="">
-                                <div class="product-badge offer-badge">
-                                    <span>-10%</span>
+                        </a>
+                        <a href="{{ json[3]['url'] }}">
+                            <div class="single-product-wrapper">
+                                <div class="product-img">
+                                    <img src="{{ json[3]['img'] }}" alt="">
                                 </div>
-                                <div class="product-favourite">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                            <div class="product-description">
-                                <span>yes24</span>
-                                <a href="single-product-details.html">
-                                    <h6>삶이 괴롭냐고 심리학이 물었다</h6>
-                                </a>
-                                <p class="product-price"><span class="old-price">15,000원</span> 13,500원</p>
-                                <div class="hover-content">
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">장바구니에 넣기</a>
-                                    </div>
+                                <div class="product-description">
+                                    <span>{{ json[3]["site"] }}</span>
+                                    <h6>{{ json[3]["title"] }}</h6>
+                                    <p class="product-price">{{ json[3]["price"] }}원</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="single-product-wrapper">
-                            <div class="product-img">
-                                <img src="img/product-img/new5.jpg" alt="">
-                                <div class="product-badge offer-badge">
-                                    <span>-10%</span>
+                        </a>
+                        <a href="{{ json[4]['url'] }}">
+                            <div class="single-product-wrapper">
+                                <div class="product-img">
+                                    <img src="{{ json[4]['img'] }}" alt="">
                                 </div>
-                                <div class="product-favourite">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                            <div class="product-description">
-                                <span>인터파크</span>
-                                <a href="single-product-details.html">
-                                    <h6>일주일</h6>
-                                </a>
-                                <p class="product-price"><span class="old-price">15,000원</span> 13,500원</p>
-                                <div class="hover-content">
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">장바구니에 넣기</a>
-                                    </div>
+                                <div class="product-description">
+                                    <span>{{ json[4]["site"] }}</span>
+                                    <h6>{{ json[4]["title"] }}</h6>
+                                    <p class="product-price">{{ json[4]["price"] }}원</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="single-product-wrapper">
-                            <div class="product-img">
-                                <img src="img/product-img/new6.jpg" alt="">
-                                <div class="product-badge offer-badge">
-                                    <span>-10%</span>
+                        </a>
+                        <a href="{{ json[5]['url'] }}">
+                            <div class="single-product-wrapper">
+                                <div class="product-img">
+                                    <img src="{{ json[5]['img'] }}" alt="">
                                 </div>
-                                <div class="product-favourite">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                            <div class="product-description">
-                                <span>yes24</span>
-                                <a href="single-product-details.html">
-                                    <h6>인류의 미래</h6>
-                                </a>
-                                <p class="product-price"><span class="old-price">24,000원</span> 21,600원</p>
-                                <div class="hover-content">
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">장바구니에 넣기</a>
-                                    </div>
+                                <div class="product-description">
+                                    <span>{{ json[5]["site"] }}</span>
+                                    <h6>{{ json[5]["title"] }}</h6>
+                                    <p class="product-price">{{ json[5]["price"] }}원</p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -228,13 +162,19 @@
             <img src="#" alt="">
         </div>
         <div class="single-brands-logo">
-            <img src="img/made-img/ll.png" alt="">
+            <a href="http://book.interpark.com/bookPark/html/book.html">
+                <img src="img/made-img/ll.png" alt="">
+            </a>
         </div>
         <div class="single-brands-logo">
-            <img src="img/made-img/yl.jpg" alt="">
+            <a href="http://www.yes24.com">
+                <img src="img/made-img/yl.jpg" alt="">
+            </a>
         </div>
         <div class="single-brands-logo">
-            <img src="img/made-img/al.png" alt="">
+            <a href="http://www.auction.co.kr/category/category36.html">
+                <img src="img/made-img/al.png" alt="">
+            </a>
         </div>
         <div class="single-brands-logo">
             <img src="#" alt="">
