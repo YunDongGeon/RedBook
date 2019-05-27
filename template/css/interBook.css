@@ -17,7 +17,7 @@
 .book_title:hover{text-decoration:underline;}
 .price_font1:hover{text-decoration:underline; color:#f24443;}
 .price_font2:hover{text-decoration:underline; color:#959595;}
-.author_font{font-size:12px; color:#000;}
+.author_font{font-size:12px; color:#000; font-weight:700;}
 .publish_font{font-size:12px; color:#999;}
 .author_div{display:block;}
 .min_price_font{font-weight:700; font-size:20px; color:#f24443; font-family:helvetica,Arial,sans-serif,NanumGothic; }
