@@ -743,10 +743,13 @@ img {
   background-color: #ffffff; }
   .single-product-wrapper .product-img {
     position: relative;
+    width: 255px;
+    height: 370px;
     z-index: 1;
     overflow: hidden; }
     .single-product-wrapper .product-img img {
-      width: 100%;
+      width: 255px;
+      height: 370px;
       -webkit-transition-duration: 500ms;
       transition-duration: 500ms; }
     .single-product-wrapper .product-img .hover-img {

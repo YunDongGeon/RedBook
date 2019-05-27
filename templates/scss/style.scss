@@ -854,10 +854,13 @@ img {
     background-color: $white-color;
     .product-img {
         position: relative;
+        width: 255px;
+        height: 370px;
         z-index: 1;
         overflow: hidden;
         img {
-            width: 100%;
+            width: 255px;
+            height: 370px;
             @include trans-duration(500ms);
         }
         .hover-img {
