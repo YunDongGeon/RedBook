@@ -11,6 +11,7 @@ import scrapy
 class RedbookItem(scrapy.Item):
     # 쇼핑몰 이름
     book_site = scrapy.Field()
+    book_isbn = scrapy.Field()
     # 책 제목
     book_title = scrapy.Field()
     # 책 카테고리

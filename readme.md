@@ -1,7 +1,6 @@
-# FindYou
-###### shoppingmall crolling
-###### 장바구니
+# RedBook
+###### BookShopingMall Crawling
 
 
 
-# made by Soobineey
+# made by YunDongGeon, ParkSeungJin, ChoiSooBin
