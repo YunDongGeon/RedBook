@@ -20,12 +20,14 @@ class KyoboCrawlSpider(CrawlSpider):
         scrapy.Spider.__init__(self)
         self.driver = webdriver.Chrome('C:/chromedriver')
         #self.driver = webdriver.PhantomJS("C:/phantomjs-2.1.1-windows/phantomjs-2.1.1-windows/bin/phantomjs")
+    def __del__(self):
+        self.driver.close()
     def parse(self, response):
-        n = 1
         pageNum = 2
         self.driver.get(response.url)
         time.sleep(1)
         for i in range(2):
+            n = 1
             for j in range(50):
                 xpath = '//*[@id="prd_list_type1"]/li[%d]/div/div[1]/div[2]/div[1]/a'%n
                 n += 2
@@ -55,4 +57,4 @@ class KyoboCrawlSpider(CrawlSpider):
             page = '//*[@id="eventPaging"]/div/ul/li[%d]/a'%pageNum
             pageNum+=1
             elem = self.driver.find_element_by_xpath(page).click()
-        self.driver.close()
+        #self.driver.close()
