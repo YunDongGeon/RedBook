@@ -14,7 +14,6 @@ BOT_NAME = 'redbook'
 SPIDER_MODULES = ['redbook.spiders']
 NEWSPIDER_MODULE = 'redbook.spiders'
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'redbook (+http://www.yourdomain.com)'
 
