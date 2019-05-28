@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
-import os
-from scrapy.linkextractors import LinkExtractor
 from scrapy.selector import Selector
 from scrapy.spiders import CrawlSpider, Rule
-from scrapy.http import Request
 from datetime import datetime
 from selenium import webdriver
 import time
@@ -22,6 +19,7 @@ class KyoboCrawlSpider(CrawlSpider):
         #self.driver = webdriver.PhantomJS("C:/phantomjs-2.1.1-windows/phantomjs-2.1.1-windows/bin/phantomjs")
     def __del__(self):
         self.driver.close()
+
     def parse(self, response):
         pageNum = 2
         self.driver.get(response.url)
@@ -57,4 +55,3 @@ class KyoboCrawlSpider(CrawlSpider):
             page = '//*[@id="eventPaging"]/div/ul/li[%d]/a'%pageNum
             pageNum+=1
             elem = self.driver.find_element_by_xpath(page).click()
-        #self.driver.close()
