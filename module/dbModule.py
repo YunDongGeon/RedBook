@@ -4,6 +4,7 @@
 import pymongo
 import json
 from bson import json_util
+from flask import Flask, render_template, request, url_for
 
 class Database():
 
@@ -28,6 +29,14 @@ class Database():
 
     def recentCrawledBook(self):
         rows = self.collection.find().sort('crawled_time', pymongo.DESCENDING).limit(6)
+        results = list(rows)
+        self.dbclose()
+        return json.dumps(results, default=json_util.default, ensure_ascii=False)
+
+    def find(self, keyword):
+        print(self.collection.find().sort('crawled_time', pymongo.DESCENDING))
+        rows = list(self.collection.find( "{title: '" + keyword + "'}").sort('crawled_time', pymongo.DESCENDING))
+        print('rows 실행')
         results = list(rows)
         self.dbclose()
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
