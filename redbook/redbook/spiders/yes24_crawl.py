@@ -8,12 +8,16 @@ class Yes24CrawlSpider(CrawlSpider):
     name = 'yes24_crawl'
     allowed_domains = ['yes24.com']
 
-    start_urls = ['http://www.yes24.com/24/Category/Display/001001046001?ParamSortTp=05',
+    start_urls = [
+                'http://www.yes24.com/24/Category/Display/001001046001?ParamSortTp=05&FetchSize=20&PageNumber=1',
+                'http://www.yes24.com/24/Category/Display/001001046001?ParamSortTp=05&FetchSize=20&PageNumber=2',
+                'http://www.yes24.com/24/Category/Display/001001046001?ParamSortTp=05&FetchSize=20&PageNumber=3',
+                'http://www.yes24.com/24/Category/Display/001001046001?ParamSortTp=05&FetchSize=20&PageNumber=4',
+                'http://www.yes24.com/24/Category/Display/001001046001?ParamSortTp=05&FetchSize=20&PageNumber=5',
                   ]
 
     rules = (
         Rule(LinkExtractor(allow=r'Product/Goods/.*'), callback='parse_item', follow=True),
-        Rule(LinkExtractor(allow=r'24/Category/Display/001001046001?ParamSortTp=05&PageNumber=\d')),
     )
 
     def parse_item(self, response):
