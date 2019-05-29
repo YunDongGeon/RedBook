@@ -34,8 +34,11 @@ class Database():
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
 
     def find(self, keyword):
-        print(self.collection.find().sort('crawled_time', pymongo.DESCENDING))
-        rows = list(self.collection.find( "{title: '" + keyword + "'}").sort('crawled_time', pymongo.DESCENDING))
+        print(keyword)
+        print("---------------------------------------")
+        print(self.collection.find({"title" : keyword }))
+        print("---------------------------------------")
+        rows = list(self.collection.find( {"title": keyword }).sort('crawled_time', pymongo.DESCENDING))
         print('rows 실행')
         results = list(rows)
         self.dbclose()
