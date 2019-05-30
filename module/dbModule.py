@@ -38,7 +38,38 @@ class Database():
         print("---------------------------------------")
         print(self.collection.find({"title" : keyword }))
         print("---------------------------------------")
-        rows = list(self.collection.find( {"title": keyword }).sort('crawled_time', pymongo.DESCENDING))
+        # rows = list(self.collection.find({"title": keyword}).aggregate)
+        rows = list(
+            self.collection.aggregate([
+                {'$sort':{"site":pymongo.DESCENDING, "crawled_time":pymongo.DESCENDING}},
+                {'$match': {'title': keyword}},
+                {'$group':
+                            {
+                                '_id': {'isbn':'$isbn', 'site':'$site'},
+                                'books': {
+                                    '$push':
+                                    {
+                                        'title': '$title',
+                                        'category' : '$category',
+                                        'price' : '$price',
+                                        'author' : '$author',
+                                        'publish' : '$publish',
+                                        'publish_date' : '$publish_date',
+                                        'img' : '$img',
+                                        'url' : '$url',
+                                        'crawled_time' : '$crawled_time'
+                                    }
+                                }
+                            }
+                        },
+                        {'$group':
+                            {
+                                '_id': {'isbn': '$_id.isbn'},
+                                'bookList': { '$push' : {'site' : '$_id.site', 'books' : '$books'}}
+                            }
+                        }
+                    ])
+                )
         print('rows 실행')
         results = list(rows)
         self.dbclose()
