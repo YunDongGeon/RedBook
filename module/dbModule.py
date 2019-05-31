@@ -4,7 +4,7 @@
 import pymongo
 import json
 from bson import json_util
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, jsonify
 
 class Database():
 
@@ -71,6 +71,46 @@ class Database():
                     ])
                 )
         print('rows 실행')
+        results = list(rows)
+        self.dbclose()
+        return json.dumps(results, default=json_util.default, ensure_ascii=False)
+
+    def load(self, page):
+        start = int(page) * 20
+        end = start + (20 * int(page)+1)
+        rows = list(
+            self.collection.aggregate([
+                {'$sort':{"site":-1, "crawled_time":-1}},
+                {'$group':
+                    {
+                        '_id': {'isbn':'$isbn', 'site':'$site'},
+                        'books': {
+                            '$push':
+                            {
+                                'title': '$title',
+                                'category': '$category',
+                                'price' : '$price',
+                                'author' : '$author',
+                                'publish' : '$publish',
+                                'publish_date' : '$publish_date',
+                                'img' : '$img',
+                                'url' : '$url',
+                                'crawled_time' : '$crawled_time'
+                            }
+                        }
+                    }
+                },
+                {'$group':
+                    {
+                        '_id': {'isbn': '$_id.isbn'},
+                        'bookList': { '$push' : {'site' : '$_id.site', 'books' : '$books'}}
+                    }
+                },
+                {'$sort':{"bookList.books.publish_date":-1}},
+                {'$skip': start},
+                {'$limit': end}
+            ])
+        )
         results = list(rows)
         self.dbclose()
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
