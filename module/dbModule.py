@@ -41,7 +41,7 @@ class Database():
         # rows = list(self.collection.find({"title": keyword}).aggregate)
         rows = list(
             self.collection.aggregate([
-                {'$sort':{"site":pymongo.DESCENDING, "crawled_time":pymongo.DESCENDING}},
+                {'$sort':{"site":pymongo.DESCENDING, "crawled_time":pymongo.DESCENDING, "price":pymongo.ASCENDING}},
                 {'$match': {'title': keyword}},
                 {'$group':
                             {
