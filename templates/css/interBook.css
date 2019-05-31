@@ -27,3 +27,7 @@
 .cat_div{display:block;}
 .release_div{display:block; margin-top:3px;}
 .release_font{color:#000; font-weight:700; font-size:13px; font-family:돋움,Dotum,AppleGothic,serif;}
+ul{
+   list-style:none;
+   padding-left:0px;
+}
