@@ -34,8 +34,42 @@ class Database():
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
 
     def find(self, keyword):
-        print(self.collection.find().sort('crawled_time', pymongo.DESCENDING))
-        rows = list(self.collection.find( "{title: '" + keyword + "'}").sort('crawled_time', pymongo.DESCENDING))
+        print(keyword)
+        print("---------------------------------------")
+        print(self.collection.find({"title" : keyword }))
+        print("---------------------------------------")
+        # rows = list(self.collection.find({"title": keyword}).aggregate)
+        rows = list(
+            self.collection.aggregate([
+                {'$sort':{"site":pymongo.DESCENDING, "crawled_time":pymongo.DESCENDING, "price":pymongo.ASCENDING}},
+                {'$match': {'title': keyword}},
+                {'$group':
+                            {
+                                '_id': {'isbn':'$isbn', 'site':'$site'},
+                                'books': {
+                                    '$push':
+                                    {
+                                        'title': '$title',
+                                        'category' : '$category',
+                                        'price' : '$price',
+                                        'author' : '$author',
+                                        'publish' : '$publish',
+                                        'publish_date' : '$publish_date',
+                                        'img' : '$img',
+                                        'url' : '$url',
+                                        'crawled_time' : '$crawled_time'
+                                    }
+                                }
+                            }
+                        },
+                        {'$group':
+                            {
+                                '_id': {'isbn': '$_id.isbn'},
+                                'bookList': { '$push' : {'site' : '$_id.site', 'books' : '$books'}}
+                            }
+                        }
+                    ])
+                )
         print('rows 실행')
         results = list(rows)
         self.dbclose()
