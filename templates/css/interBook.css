@@ -30,7 +30,7 @@
 .search_top{border: #da5454 solid; border-width: 0px 0px 0px 5px; padding-left:10px; width:745px;}
 .search_top_font{font-weight:bold; font-size:15px;}
 .search_count{color:#3378bd; font-style:normal; font-weight:400; font-size:17px;}
-.blank_tr{height:10px;}
+.blank_tr{height:10px; width:745px;}
 .search_bottom{padding-left:25px; border: #da5454 solid; border-width: 3px 0px 1px 0px; background-color:#f8e2e2; width:745px;}
 .search_bottom_tr{height:34px;}
 .search_a{text-decoration:none; font-weight:100; font-size:12px; font-color:#555;}
@@ -46,3 +46,7 @@
 .search_keyword_input{width:400px; height:25px; margin:6px 0 0 9px; border:0; line-height:21px; font-size:16px; outline:none;}
 .window{display: inline-block; width:418px; height:40px; border:2px solid #da5454; background: white;}
 .search_keyword::placeholder{color:#e0e0e0;}
+.keyword_result_none_tr{height:200px;}
+.keyword_result_none{width:745px; padding-left:30px;}
+.keyword_none{color:#da5454; font-size:30px; font-weight:bold;}
+.keyword_none_text{font-weight:bold; font-size:15px;}
