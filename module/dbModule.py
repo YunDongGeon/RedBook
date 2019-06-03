@@ -4,7 +4,7 @@
 import pymongo
 import json
 from bson import json_util
-from flask import Flask, render_template, request, url_for
+from jinja2 import UndefinedError
 
 class Database():
 
@@ -33,12 +33,14 @@ class Database():
         self.dbclose()
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
 
+
     def find(self, keyword):
         print(keyword)
         print("---------------------------------------")
         print(self.collection.find({"title" : keyword }))
         print("---------------------------------------")
         # rows = list(self.collection.find({"title": keyword}).aggregate)
+
         rows = list(
             self.collection.aggregate([
                 {'$sort':{"site":pymongo.DESCENDING, "crawled_time":pymongo.DESCENDING, "price":pymongo.ASCENDING}},

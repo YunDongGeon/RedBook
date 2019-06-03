@@ -37,5 +37,6 @@ def search():
         return "검색어를 잘못 입력하셨습니다."
 
 
+
 if __name__ == "__main__":
     app.run()
