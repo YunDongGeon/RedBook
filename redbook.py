@@ -37,7 +37,6 @@ def search():
         return "검색어를 잘못 입력하셨습니다."
 
 
-
 @app.route("/interBook/<page>", methods=['get'])
 def interBook(page):
     db_class = dbModule.Database()
