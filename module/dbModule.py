@@ -37,15 +37,15 @@ class Database():
 
     def find(self, keyword):
         print(keyword)
-        print("---------------------------------------")
-        print(self.collection.find({"title" : keyword }))
-        print("---------------------------------------")
+        #print("---------------------------------------")
+        #print(list(self.collection.find({"title" : keyword })))
+        #print("---------------------------------------")
         # rows = list(self.collection.find({"title": keyword}).aggregate)
 
         rows = list(
             self.collection.aggregate([
                 {'$sort':{"site":pymongo.DESCENDING, "crawled_time":pymongo.DESCENDING, "price":pymongo.ASCENDING}},
-                {'$find': {'title': '/'+keyword+'/' }},
+                {'$match': {'title': keyword }},
                 {'$group':
                             {
                                 '_id': {'isbn':'$isbn', 'site':'$site'},
@@ -73,7 +73,6 @@ class Database():
                         }
                     ])
                 )
-        print('/'+keyword+'/')
         print('rows 실행')
         results = list(rows)
         self.dbclose()
