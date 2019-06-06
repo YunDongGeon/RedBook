@@ -75,7 +75,7 @@
                             <div class="product-topbar d-flex align-items-center justify-content-between">
                                 <!-- Total Products -->
                                 <div class="total-products">
-                                    <p>상품개수 : <span>0<!-- 상품 개수 count --></span></p>
+                                    <p>상품개수 : <span id="count"></span></p>
                                 </div>
                                 <!-- Sorting -->
                                 <div class="product-sorting d-flex">
@@ -113,8 +113,14 @@
 <script type="text/javascript">
         $(document).ready(function() {
            page=0
-           price = new Array();
-           site = new Array();
+           $.ajax({
+              url: 'http://127.0.0.1:5000/getCount',
+              success: function(data) {
+                 $('#count').append(
+                    data[0].count
+                 );
+              }
+           });
            $.ajax({
               url: 'http://127.0.0.1:5000/interBook/'+page,
               success: function(data) {
