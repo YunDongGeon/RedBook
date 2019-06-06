@@ -25,16 +25,21 @@ def index():
 
 @app.route("/search.html", methods=['post'])
 def search():
-
     db_class = dbModule.Database()
     results = db_class.find(request.form['keyword'])
     try:
         results = json.loads(results)
         pprint(results)
-        return render_template("search.html",
-                               json=results)
+        return render_template("search.html", json=results)
     except UndefinedError:
         return "검색어를 잘못 입력하셨습니다."
+
+@app.route("/search/<keyword>/<page>", methods=['get'])
+def search_ajax(keyword, page):
+    db_class = dbModule.Database()
+    results = json.loads(db_class.find_ajax(keyword, page))
+    pprint(results)
+    return jsonify(results)
 
 
 @app.route("/interBook/<page>", methods=['get'])
