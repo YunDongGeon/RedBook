@@ -176,3 +176,27 @@ class Database():
         count = list(rows)
         self.dbclose()
         return json.dumps(count, default=json_util.default, ensure_ascii=False)
+
+    def getSearchCount(self, keyword):
+        rows = list(
+            self.collection.aggregate([
+                        {'$match': {'title': {'$regex': keyword}}},
+                        {
+                            '$group':{
+                                '_id': '$isbn'
+                            }
+                        },
+                        {
+                            '$group': {
+                               '_id': 1,
+                                'count' :{
+                                    '$sum' : 1
+                                }
+                            }
+                        }
+                    ])
+        )
+        count = list(rows)
+        print(count)
+        self.dbclose()
+        return json.dumps(count, default=json_util.default, ensure_ascii=False)

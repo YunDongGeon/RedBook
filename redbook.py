@@ -34,6 +34,12 @@ def search():
     except UndefinedError:
         return "검색어를 잘못 입력하셨습니다."
 
+@app.route("/getSearchCount/<keyword>", methods=['get'])
+def getSearchCount(keyword):
+    db_class = dbModule.Database()
+    count = json.loads(db_class.getSearchCount(keyword))
+    return jsonify(count)
+
 @app.route("/search/<keyword>/<page>", methods=['get'])
 def search_ajax(keyword, page):
     db_class = dbModule.Database()
@@ -57,6 +63,9 @@ def getCount():
     count = json.loads(db_class.getCount())
     return jsonify(count)
 
+@app.route("/interBookCategory.html?=category=<category>", methods=['get'])
+def getBookCategory(category):
+    return "interBookCategory.html?=category="+category,
 
 if __name__ == "__main__":
     app.run()
