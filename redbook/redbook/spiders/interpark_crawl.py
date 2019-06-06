@@ -23,16 +23,8 @@ class InterparkCrawlSpider(CrawlSpider):
     def parse_item(self, response):
         item = {}
         item["book_site"] = "인터파크"
-        try :
-            isbn = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[2]/ul/li[7]/text()')[0].extract()
-            item['book_isbn'] = isbn[7:]
-        except IndexError:
-            try:
-                isbn = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[2]/ul/li[6]/text()')[0].extract()
-                item['book_isbn'] = isbn[7:]
-            except IndexError:
-                isbn = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[2]/ul/li[5]/text()')[0].extract()
-                item['book_isbn'] = isbn[7:]
+        isbn = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[2]/ul/li[6]/text()')[0].extract()
+        item['book_isbn'] = isbn[7:]
         item["book_cat"] = response.xpath('//*[@id="locationMenu3"]/text()')[0].extract()
         item["book_title"] = response.xpath('//*[@id="inc_titWrap"]/div[1]/div/p/text()')[0].extract().strip()
         item["book_price"] = response.xpath('//*[@id="inc_optionWrap"]/div[2]/div[4]/div[1]/ul/li[1]/div/p[1]/span[1]/text()')[0].extract()

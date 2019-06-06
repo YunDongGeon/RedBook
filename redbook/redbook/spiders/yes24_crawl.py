@@ -31,6 +31,7 @@ class Yes24CrawlSpider(CrawlSpider):
         item['book_publish'] = response.xpath('//*[@id="yDetailTopWrap"]/div[2]/div[1]/span[2]/span[2]/a/text()').extract()
         item['book_publish_date'] = response.xpath('//*[@id="yDetailTopWrap"]/div[2]/div[1]/span[2]/span[3]/text()').extract()
         item['book_img'] = response.xpath('//*[@id="yDetailTopWrap"]/div[1]/div[1]/span/em/img/@src').extract()
+        item['book_img'] = item['book_img']+".jpg"
         item['book_url'] = response.request.url
         item["crawl_time"] = datetime.now()
         return item
