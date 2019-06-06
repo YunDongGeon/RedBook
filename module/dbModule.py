@@ -6,6 +6,7 @@ import json
 from bson import json_util
 from flask import Flask, render_template, request, url_for, jsonify
 from jinja2 import UndefinedError
+import re
 
 class Database():
 
@@ -37,15 +38,10 @@ class Database():
 
     def find(self, keyword):
         print(keyword)
-        #print("---------------------------------------")
-        #print(list(self.collection.find({"title" : keyword })))
-        #print("---------------------------------------")
-        # rows = list(self.collection.find({"title": keyword}).aggregate)
-
         rows = list(
             self.collection.aggregate([
                 {'$sort':{"site":pymongo.DESCENDING, "crawled_time":pymongo.DESCENDING, "price":pymongo.ASCENDING}},
-                {'$match': {'title': keyword }},
+                {'$match': {'title': {'$regex': keyword} } },
                 {'$group':
                             {
                                 '_id': {'isbn':'$isbn', 'site':'$site'},
