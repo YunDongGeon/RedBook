@@ -38,5 +38,14 @@ def search():
 
 
 
+@app.route("/interBook/<page>", methods=['get'])
+def interBook(page):
+    db_class = dbModule.Database()
+    print(page)
+    results = db_class.load(page)
+    results = json.loads(results)
+    pprint(results)
+    return jsonify(results)
+
 if __name__ == "__main__":
     app.run()

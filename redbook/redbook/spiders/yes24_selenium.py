@@ -50,6 +50,7 @@ class Yes24CrawlSpider(CrawlSpider):
                 item["book_publish_date"] = selector.xpath('//*[@id="yDetailTopWrap"]/div[2]/div[1]/span[2]/span[3]/text()')[0].extract()
                 item["book_img"] = selector.xpath('//*[@id="yDetailTopWrap"]/div[1]/div[1]/span/em/img/@src')[0].extract()
                 item["book_url"] = self.driver.current_url
+                item['book_img'] = item['book_img'] + ".jpg"
                 item["crawl_time"] = datetime.now()
                 yield item
                 self.driver.execute_script('window.history.go(-1)')
