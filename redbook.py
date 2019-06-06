@@ -47,5 +47,12 @@ def interBook(page):
     pprint(results)
     return jsonify(results)
 
+@app.route("/getCount", methods=['get'])
+def getCount():
+    db_class = dbModule.Database()
+    count = json.loads(db_class.getCount())
+    return jsonify(count)
+
+
 if __name__ == "__main__":
     app.run()

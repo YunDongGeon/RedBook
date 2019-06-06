@@ -117,3 +117,23 @@ class Database():
         results = list(rows)
         self.dbclose()
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
+
+    def getCount(self):
+        rows = self.collection.aggregate([
+                                            {
+                                                '$group':{
+                                                    '_id': '$isbn'
+                                                }
+                                            },
+                                            {
+                                                '$group': {
+                                                   '_id': 1,
+                                                    'count' :{
+                                                        '$sum' : 1
+                                                    }
+                                                }
+                                            }
+                                        ])
+        count = list(rows)
+        self.dbclose()
+        return json.dumps(count, default=json_util.default, ensure_ascii=False)
