@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>검색</title>
+              <link rel="icon" href="img/core-img/favicon.png">
+    <link rel="stylesheet" href="css/core-style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/interBook.css">
+
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/classy-nav.min.js"></script>
+    <script src="js/active.js"></script>
+    <script src="js/includeHTML.js"></script>
+</head>
+<body>
+     <div id="headers"></div>
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>책 찾아보기</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="shop_grid_area section-padding-80">
+        <div class="container" align="center">
+                <div class="col-12 col-md-8 col-lg-9">
+                    <div class="shop_grid_product_area">
+                        <div class="row">
+                            <div align="center">
+                                <table border="0">
+                                    <tr>
+                                        <td class="search_table" align="center">
+                                            <form method="post" action="search.html">
+                                                <span class="window">
+                                                    <input type="text" name="keyword" class="search_keyword_input" placeholder="검색어를 입력해주세요">
+                                                </span>
+                                                <button type="submit" class="search_button">검색</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br><br>
+                                <table>
+                                    <tr>
+                                        <td class="search_top">
+                                            <strong class="search_top_font">
+                                                도서&nbsp;:&nbsp;
+                                                <span class="search_keyword">"깃털도둑"<!-- 검색어 -->"</span>
+                                                &nbsp;검색결과&nbsp;&nbsp;
+                                            </strong>
+                                            /&nbsp;&nbsp;
+                                            <span class="search_count">1<!-- 검색결과 개수 --></span>
+                                            건
+                                        </td>
+                                    </tr>
+                                    <tr class="blank_tr">
+                                        <td colspan="4"></td>
+                                    </tr>
+
+                                    <tr class="search_bottom_tr">
+                                        <td class="search_bottom">
+                                            <div>
+                                                <span class="search_df3"><a href="#" class="search_a">정확도</a></span>
+                                                <span class="search_df1">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                                <span class="search_df2"><a href="#" class="search_a">최저가</a></span>
+                                                <span class="search_df1">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                                <span class="search_df2"><a href="#" class="search_a">최고가</a></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+        <table border="0" id="fail">
+            <tr class="keyword_result_none_tr">
+                <td class="keyword_result_none">
+                    <span class="keyword_none">"깃털도둑"</span>
+                    <span class="keyword_none_text">의 검색결과가 없습니다.</span>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <div id="footers"></div>
+</body>
+
+</html>

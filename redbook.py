@@ -34,7 +34,8 @@ def search():
         return render_template("search.html",
                                json=results)
     except UndefinedError:
-        return "검색어를 잘못 입력하셨습니다."
+        return render_template("search_fail.html",
+                               json=results)
 
 
 @app.route("/interBook/<page>", methods=['get'])
