@@ -76,11 +76,11 @@ class Database():
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
 
     def load(self, page):
-        start = int(page) * 20
-        end = start + (20 * int(page)+1)
+        start = int(page) * 5
+        end = start + 5
         rows = list(
             self.collection.aggregate([
-                {'$sort':{"site":-1, "crawled_time":-1}},
+                {'$sort':{"site":pymongo.ASCENDING, "crawled_time":pymongo.DESCENDING}},
                 {'$group':
                     {
                         '_id': {'isbn':'$isbn', 'site':'$site'},
@@ -106,11 +106,13 @@ class Database():
                         'bookList': { '$push' : {'site' : '$_id.site', 'books' : '$books'}}
                     }
                 },
-                {'$sort':{"bookList.books.publish_date":-1}},
+                {'$sort':{"bookList.books.publish_date":pymongo.DESCENDING}},
                 {'$skip': start},
                 {'$limit': end}
             ])
         )
         results = list(rows)
         self.dbclose()
+        start = 0
+        end = 0
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
