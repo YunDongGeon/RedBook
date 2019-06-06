@@ -45,7 +45,7 @@ class Database():
         rows = list(
             self.collection.aggregate([
                 {'$sort':{"site":pymongo.DESCENDING, "crawled_time":pymongo.DESCENDING, "price":pymongo.ASCENDING}},
-                {'$match': {'title': keyword}},
+                {'$find': {'title': '/'+keyword+'/' }},
                 {'$group':
                             {
                                 '_id': {'isbn':'$isbn', 'site':'$site'},
@@ -73,6 +73,7 @@ class Database():
                         }
                     ])
                 )
+        print('/'+keyword+'/')
         print('rows 실행')
         results = list(rows)
         self.dbclose()
@@ -80,7 +81,7 @@ class Database():
 
     def load(self, page):
         start = int(page) * 5
-        end = start + 5
+        end = 5
         rows = list(
             self.collection.aggregate([
                 {'$sort':{"site":pymongo.ASCENDING, "crawled_time":pymongo.DESCENDING}},
@@ -116,6 +117,4 @@ class Database():
         )
         results = list(rows)
         self.dbclose()
-        start = 0
-        end = 0
         return json.dumps(results, default=json_util.default, ensure_ascii=False)
