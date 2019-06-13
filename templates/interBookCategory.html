@@ -13,6 +13,7 @@
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
     <script src="js/plugins.js"></script>
     <script src="js/classy-nav.min.js"></script>
     <script src="js/active.js"></script>
@@ -98,6 +99,7 @@
                         <div align="center">
                             <ul>
                                 <li class="item">
+                                    ㅁㄴㅇㄹ
                                 </li>
                             </ul>
                         </div>
@@ -112,16 +114,308 @@
 <div id="footers"></div>
 <script type="text/javascript">
   $(document).ready(function() {
+    category = decodeURI(getQueryParam('category'))
     $('#category').append(
-      decodeURI(getQueryParam('category'))
+      category
     );
+    $.ajax({
+      url: 'http://127.0.0.1:5000/interBookCategory/'+category+'/'+page,
+      success: function(data) {
+         for (var i = 0; i < data.length; i++) {
+            if (data[i].bookList.length == 1){
+               $('.item').append(
+                  create1(
+                     data[i].bookList[0].books[0].img,
+                     data[i].bookList[0].books[0].url,
+                     data[i].bookList[0].books[0].title,
+                     data[i].bookList[0].books[0].author,
+                     data[i].bookList[0].books[0].publish,
+                     data[i].bookList[0].books[0].publish_date,
+                     data[i].bookList[0].books[0].category,
+                     data[i].bookList[0].site,
+                     data[i].bookList[0].books[0].price,
+                  )
+               );
+            }else if (data[i].bookList.length == 2){
+               $('.item').append(
+                  create2(
+                     data[i].bookList[0].books[0].img,
+                     data[i].bookList[0].books[0].url,
+                     data[i].bookList[0].books[0].title,
+                     data[i].bookList[0].books[0].author,
+                     data[i].bookList[0].books[0].publish,
+                     data[i].bookList[0].books[0].publish_date,
+                     data[i].bookList[0].books[0].category,
+                     data[i].bookList[0].site,
+                     data[i].bookList[1].site,
+                     data[i].bookList[0].books[0].price,
+                     data[i].bookList[1].books[0].price,
+                  )
+               );
+            }else{
+               $('.item').append(
+                  create3(
+                     data[i].bookList[0].books[0].img,
+                     data[i].bookList[0].books[0].url,
+                     data[i].bookList[0].books[0].title,
+                     data[i].bookList[0].books[0].author,
+                     data[i].bookList[0].books[0].publish,
+                     data[i].bookList[0].books[0].publish_date,
+                     data[i].bookList[0].books[0].category,
+                     data[i].bookList[0].site,
+                     data[i].bookList[1].site,
+                     data[i].bookList[2].site,
+                     data[i].bookList[0].books[0].price,
+                     data[i].bookList[1].books[0].price,
+                     data[i].bookList[2].books[0].price,
+                  )
+               );
+            }
+         }
+      }
+   });
+   page++;
   });
-  function getQueryParam(param) {
-    var result = window.location.search.match(
-      new RegExp("(\\?)" + param + "(\\[\\])?=([^&]*)")
-    );
-    return result ? result[3] : false;
-  }
+        $("#button").click(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: 'http://127.0.0.1:5000/interBookCategory/'+decodeURI(getQueryParam('category'))+'/'+page,
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].bookList.length == 1){
+                           $('.item').append(
+                              create1(
+                                 data[i].bookList[0].books[0].img,
+                                 data[i].bookList[0].books[0].url,
+                                 data[i].bookList[0].books[0].title,
+                                 data[i].bookList[0].books[0].author,
+                                 data[i].bookList[0].books[0].publish,
+                                 data[i].bookList[0].books[0].publish_date,
+                                 data[i].bookList[0].books[0].category,
+                                 data[i].bookList[0].site,
+                                 data[i].bookList[0].books[0].price,
+                              )
+                           );
+                        }else if (data[i].bookList.length == 2){
+                           $('.item').append(
+                              create2(
+                                 data[i].bookList[0].books[0].img,
+                                 data[i].bookList[0].books[0].url,
+                                 data[i].bookList[0].books[0].title,
+                                 data[i].bookList[0].books[0].author,
+                                 data[i].bookList[0].books[0].publish,
+                                 data[i].bookList[0].books[0].publish_date,
+                                 data[i].bookList[0].books[0].category,
+                                 data[i].bookList[0].site,
+                                 data[i].bookList[1].site,
+                                 data[i].bookList[0].books[0].price,
+                                 data[i].bookList[1].books[0].price,
+                              )
+                           );
+                        }else{
+                           $('.item').append(
+                              create3(
+                                 data[i].bookList[0].books[0].img,
+                                 data[i].bookList[0].books[0].url,
+                                 data[i].bookList[0].books[0].title,
+                                 data[i].bookList[0].books[0].author,
+                                 data[i].bookList[0].books[0].publish,
+                                 data[i].bookList[0].books[0].publish_date,
+                                 data[i].bookList[0].books[0].category,
+                                 data[i].bookList[0].site,
+                                 data[i].bookList[1].site,
+                                 data[i].bookList[2].site,
+                                 data[i].bookList[0].books[0].price,
+                                 data[i].bookList[1].books[0].price,
+                                 data[i].bookList[2].books[0].price,
+                              )
+                           );
+                        }
+                    }
+                }
+            });
+            page++;
+        });
+        function create1(img, url, title, author, publish, publish_date, category, site, price){
+            return `<table border="0">
+                        <tbody><tr class="interTr1">
+                            <td class="interTd1" rowspan="2">
+                                <a href="${url}">
+                                    <img src="${img}" width="140px" s="" alt="">
+                                </a>
+                            </td>
+                            <td class="interTd2">
+                                    <span>
+                                        <a href="${url}" class="book_title" title="책제목">${title}</a>
+                                    </span>
+                            </td>
+                            <td class="interTd3" colspan="2">
+                                <span class="shop_font">쇼핑몰별 최저가</span>
+                            </td>
+                        </tr>
+                        <tr class="interTr2">
+                            <td class="interTd6">
+                                <div class="author_div">
+                                    <span class="author_font" title="저자">${author}<!--저자 --></span>
+                                    <span class="publish_font">저</span>&nbsp;
+                                    <span class="publish_font">|</span>&nbsp;
+                                    <span class="publish_font" title="출판사">${publish}<!--출판사 --></span>&nbsp;
+                                    <span class="publish_font">|</span>&nbsp;
+                                    <span class="publish_font" title="출판일">${publish_date}<!--출판일 --></span>
+                                </div>
+                                <div class="min_price_div">
+                                    <span class="min_price_nothing">최저</span>&nbsp;
+                                    <span class="min_price_font" title="최저가격">${price}<!--책 가격 --></span>
+                                    <span class="min_price_nothing">원</span>
+                                </div>
+                                <div class="cat_div">
+                                    <span class="cat_font" title="카테고리">${category}<!--카테고리--></span>
+                                </div>
+                                <div class="release_div">
+                                    <span class="release_font">출고&nbsp;예상일&nbsp;:&nbsp;1&nbsp;일&nbsp;이내</span>
+                                </div>
+                            </td>
+                            <td class="interTd4" align="left">
+                                <span class="site_font1" title="사이트1">${site}<!--사이트1 --></span>
+                            </td>
+                            <td class="interTd5" align="right">
+                                <span>
+                                    <a href="#" class="price_font1" title="사이트1 가격">${price}원<!-- 사이트1 가격 --></a>
+                                </span>
+                                <br>
+                            </td>
+                        </tr> <!-- 여기까지 -->
+                    </tbody>
+                </table>`
+        }
+        function create2(img, url, title, author, publish, publish_date, category, site1, site2, price1, price2){
+            return `<table border="0">
+                        <tbody><tr class="interTr1">
+                            <td class="interTd1" rowspan="2">
+                                <a href="${url}">
+                                    <img src="${img}" width="140px" s="" alt="">
+                                </a>
+                            </td>
+                            <td class="interTd2">
+                                    <span>
+                                        <a href="${url}" class="book_title" title="책제목">${title}</a>
+                                    </span>
+                            </td>
+                            <td class="interTd3" colspan="2">
+                                <span class="shop_font">쇼핑몰별 최저가</span>
+                            </td>
+                        </tr>
+                        <tr class="interTr2">
+                            <td class="interTd6">
+                                <div class="author_div">
+                                    <span class="author_font" title="저자">${author}<!--저자 --></span>
+                                    <span class="publish_font">저</span>&nbsp;
+                                    <span class="publish_font">|</span>&nbsp;
+                                    <span class="publish_font" title="출판사">${publish}<!--출판사 --></span>&nbsp;
+                                    <span class="publish_font">|</span>&nbsp;
+                                    <span class="publish_font" title="출판일">${publish_date}<!--출판일 --></span>
+                                </div>
+                                <div class="min_price_div">
+                                    <span class="min_price_nothing">최저</span>&nbsp;
+                                    <span class="min_price_font" title="최저가격">${price1}<!--책 가격 --></span>
+                                    <span class="min_price_nothing">원</span>
+                                </div>
+                                <div class="cat_div">
+                                    <span class="cat_font" title="카테고리">${category}<!--카테고리--></span>
+                                </div>
+                                <div class="release_div">
+                                    <span class="release_font">출고&nbsp;예상일&nbsp;:&nbsp;1&nbsp;일&nbsp;이내</span>
+                                </div>
+                            </td>
+                            <td class="interTd4" align="left">
+                                <span class="site_font1" title="사이트1">${site1}<!--사이트1 --></span>
+                                <br>
+                                <span class="site_font2" title="사이트2">${site2}<!--사이트2 --></span>
+                            </td>
+                            <td class="interTd5" align="right">
+                                <span>
+                                    <a href="#" class="price_font1" title="사이트1 가격">${price1}원<!-- 사이트1 가격 --></a>
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#" class="price_font2" title="사이트2 가격">${price2}원<!-- 사이트2 가격 --></a>
+                                </span>
+                                <br>
+                            </td>
+                        </tr> <!-- 여기까지 -->
+                    </tbody>
+                </table>`
+        }
+        function create3(img, url, title, author, publish, publish_date, category, site1, site2, site3, price1, price2, price3){
+            return `<table border="0">
+                        <tbody><tr class="interTr1">
+                            <td class="interTd1" rowspan="2">
+                                <a href="${url}">
+                                    <img src="${img}" width="140px" s="" alt="">
+                                </a>
+                            </td>
+                            <td class="interTd2">
+                                    <span>
+                                        <a href="${url}" class="book_title" title="책제목">${title}</a>
+                                    </span>
+                            </td>
+                            <td class="interTd3" colspan="2">
+                                <span class="shop_font">쇼핑몰별 최저가</span>
+                            </td>
+                        </tr>
+                        <tr class="interTr2">
+                            <td class="interTd6">
+                                <div class="author_div">
+                                    <span class="author_font" title="저자">${author}<!--저자 --></span>
+                                    <span class="publish_font">저</span>&nbsp;
+                                    <span class="publish_font">|</span>&nbsp;
+                                    <span class="publish_font" title="출판사">${publish}<!--출판사 --></span>&nbsp;
+                                    <span class="publish_font">|</span>&nbsp;
+                                    <span class="publish_font" title="출판일">${publish_date}<!--출판일 --></span>
+                                </div>
+                                <div class="min_price_div">
+                                    <span class="min_price_nothing">최저</span>&nbsp;
+                                    <span class="min_price_font" title="최저가격">${price1}<!--책 가격 --></span>
+                                    <span class="min_price_nothing">원</span>
+                                </div>
+                                <div class="cat_div">
+                                    <span class="cat_font" title="카테고리">${category}<!--카테고리--></span>
+                                </div>
+                                <div class="release_div">
+                                    <span class="release_font">출고&nbsp;예상일&nbsp;:&nbsp;1&nbsp;일&nbsp;이내</span>
+                                </div>
+                            </td>
+                            <td class="interTd4" align="left">
+                                <span class="site_font1" title="사이트1">${site1}<!--사이트1 --></span>
+                                <br>
+                                <span class="site_font2" title="사이트2">${site2}<!--사이트2 --></span>
+                                <br>
+                                <span class="site_font2" title="사이트3">${site3}<!--사이트3 --></span>
+                            </td>
+                            <td class="interTd5" align="right">
+                                <span>
+                                    <a href="#" class="price_font1" title="사이트1 가격">${price1}원<!-- 사이트1 가격 --></a>
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#" class="price_font2" title="사이트2 가격">${price2}원<!-- 사이트2 가격 --></a>
+                                </span>
+                                <br>
+                                <span>
+                                    <a href="#" class="price_font2" title="사이트3 가격">${price3}원<!-- 사이트3 가격 --></a>
+                                </span>
+                                <br>
+                            </td>
+                        </tr> <!-- 여기까지 -->
+                    </tbody>
+                </table>`
+        }
+      function getQueryParam(param) {
+        var result = window.location.search.match(
+          new RegExp("(\\?)" + param + "(\\[\\])?=([^&]*)")
+        );
+        return result ? result[3] : false;
+      }
 </script>
 </body>
 </html>
