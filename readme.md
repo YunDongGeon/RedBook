@@ -1,6 +1,7 @@
 # RedBook
-###### BookShopingMall Crawling
+###### 크롤링을 이용한 도서상품 가격비교 사이트
 
 
 
-# made by YunDongGeon, ParkSeungJin, ChoiSooBin
+
+# made by 윤동건, 박승진, 최수빈
