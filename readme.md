@@ -23,15 +23,18 @@ Ajax, pymongo, Javascript, css, html
 
 ### 사용하기 위한 툴들
 프로젝트를 진행하기위하여 다운로드 해야할 Tool들이다.<br>
-<br>Pycharm<br>
+<br><br>
+Python<br>
+다운로드 링크 : www.python.org/downloads<br>
+Pycharm<br>
 다운로드 링크 : https://www.jetbrains.com/pycharm/download/ <br>
 MongoDB<br>
-다운로드 링크 : https://www.mongodb.com/download-center?/<br>
+다운로드 링크 : https://www.mongodb.com/download-center/community<br>
 Robo 3T<br>
-다운로드 링크 : https://www.mongodb.com/download-center?/<br>
+다운로드 링크 : https://robomongo.org/download<br>
 Webdriver<br>
-다운로드 링크 : https://sites.google.com/a/chromium.org/chromedriver/downloads
-
+다운로드 링크 : https://sites.google.com/a/chromium.org/chromedriver/downloads<br>
+*참고: webdriver는 다운로드 받은 후에 압축 해제후 C:드라이브 밑에 넣어주세요.(default)
 ### Python Install
 이 프로젝트를 실행하기위해서 install 해야하는 것들이다.
 ```bash
