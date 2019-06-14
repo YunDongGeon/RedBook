@@ -67,6 +67,15 @@ scrapy crawl yes24_selenium  # yes24 도서 크롤링
 포트 연결에 성공을 하면 waiting for connections on port 27017 라는 문구가 뜬다.<br>
 연결된 cmd창을 꺼주면 포트 연결도 끊기니 연결을 확인한 후 cmd창 켜진 상태로 Robo 3T에 서버에 접속이 가능하다.
  
+ 
+### 크롤링하기 귀찮다면...
+Github의 mongoDB파일안의 Redbook안에 크롤링 해놓은 자료가 있는데,<br>
+그것을 바탕화면에 다운로드하여서<br>
+cmd창에
+```bash
+mongorestore --db RedBook --dir C:\Users\ezackx\Desktop\RedBook
+``` 
+입력하시면 크롤링된 값을 몽고디비에 들어간 것을 Roto T3에 접속하여서 확인할 수 있습니다.
 ### Application 실행
 <code>python</code> 명령을 이용하여 웹 어플리케이션을 실행한다.
 ```bash
