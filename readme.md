@@ -50,6 +50,20 @@ scrapy crawl kyobo_crawl     # 교보문고 도서 크롤링
 scrapy crawl yes24_selenium  # yes24 도서 크롤링
 ```
 
+
+### Robo 3T에 접속 에러가 뜬다면
+ 몽고DB의 값들을 확인하기 위해 Robo 3T의 서버에 접속하여 확인을 하여야하는데 포트가 설정을 해주지 않아 접속 에러가 뜨는 경우가 있다.<br>
+ ![robo3terror](./image/robo3terror.PNG)
+ 
+ 자신이 다운로드한 몽고DB path에 \mongoDB\data 밑에 db라는 폴더를 하나 생성해주고
+  cmd창에서 입력해준다.
+ ```bash
+ mongod --dbpath D:\dev\mongoDB\data\db
+ ```
+ ![cmd](./image/cmd.PNG)
+포트 연결에 성공을 하면 waiting for connections on port 27017 라는 문구가 뜬다.<br>
+연결된 cmd창을 꺼주면 포트 연결도 끊기니 연결을 확인한 후 cmd창 켜진 상태로 Robo 3T에 서버에 접속이 가능하다.
+ 
 ### Application 실행
 <code>python</code> 명령을 이용하여 웹 어플리케이션을 실행한다.
 ```bash
