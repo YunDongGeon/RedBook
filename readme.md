@@ -16,13 +16,45 @@
 책을 구매하는데 앞서 여러 도서 판매 사이트의 정보를 한 번에 얻음과 동시에 장르별, 카테고리 별로 볼 수 있고 검색기능을 활용하여 내가 원하는 도서의 정보를 해당 도서를 판매하고 있는 도서 판매 사이트들을 한 번에 보고 가격을 비교 할 수 있습니다.<br>
 도서 정보를 크롤링하는데 사용한 기술은 Scrapy와 Selenium을 사용 하였고, 뷰페이지에는 Flask를 사용하였습니다. 크롤링 한 정보를 통신하기 위해 ajax를 사용하여 동기처리를 하였습니다.<br><br>
 
-### 사용하기위한 툴들
-Pycharm 
-다운로드 링크 : https://www.jetbrains.com/pycharm/download/
+### 사용한 기술
 
-```python
+Python, MongoDB, Selenium, Scrapy, Json, Flask, Webdriver<br>
+Ajax, pymongo, Javascript, css, html
+
+### 사용하기 위한 툴들
+프로젝트를 진행하기위하여 다운로드 해야할 Tool들이다.<br>
+<br>Pycharm<br>
+다운로드 링크 : https://www.jetbrains.com/pycharm/download/ <br>
+MongoDB<br>
+다운로드 링크 : https://www.mongodb.com/download-center?/<br>
+Robo 3T<br>
+다운로드 링크 : https://www.mongodb.com/download-center?/<br>
+Webdriver<br>
+다운로드 링크 : https://sites.google.com/a/chromium.org/chromedriver/downloads
+
+###Python Install
+이 프로젝트를 실행하기위해서 install 해야하는 것들이다.
+```bash
 pip install scrapy
+pip install flask
+pip install pywin32
+pip install selenium
+pip install pymongo
 ```
+### Crawling 실행
+<code>scrapy</code>를 이용하여 사이트들의 상품을 크롤링한다.
+```bash
+scrapy crawl interpark_crawl # 인터파크 도서 크롤링
+scrapy crawl kyobo_crawl     # 교보문고 도서 크롤링
+scrapy crawl yes24_selenium  # yes24 도서 크롤링
+```
+
+###Application 실행
+<code>python</code> 명령을 이용하여 웹 어플리케이션을 실행한다.
+```bash
+python redbook.py
+```
+
 
 
 
