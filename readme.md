@@ -32,7 +32,7 @@ Robo 3T<br>
 Webdriver<br>
 다운로드 링크 : https://sites.google.com/a/chromium.org/chromedriver/downloads
 
-###Python Install
+### Python Install
 이 프로젝트를 실행하기위해서 install 해야하는 것들이다.
 ```bash
 pip install scrapy
@@ -41,6 +41,7 @@ pip install pywin32
 pip install selenium
 pip install pymongo
 ```
+
 ### Crawling 실행
 <code>scrapy</code>를 이용하여 사이트들의 상품을 크롤링한다.
 ```bash
@@ -49,7 +50,7 @@ scrapy crawl kyobo_crawl     # 교보문고 도서 크롤링
 scrapy crawl yes24_selenium  # yes24 도서 크롤링
 ```
 
-###Application 실행
+### Application 실행
 <code>python</code> 명령을 이용하여 웹 어플리케이션을 실행한다.
 ```bash
 python redbook.py
