@@ -26,9 +26,9 @@ Ajax, pymongo, Javascript, css, html
 <br>Pycharm<br>
 다운로드 링크 : https://www.jetbrains.com/pycharm/download/ <br>
 MongoDB<br>
-다운로드 링크 : https://www.mongodb.com/download-center?/<br>
+다운로드 링크 : https://www.mongodb.com/download-center/community<br>
 Robo 3T<br>
-다운로드 링크 : https://www.mongodb.com/download-center?/<br>
+다운로드 링크 : https://robomongo.org/download<br>
 Webdriver<br>
 다운로드 링크 : https://sites.google.com/a/chromium.org/chromedriver/downloads
 
