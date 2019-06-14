@@ -53,7 +53,9 @@ scrapy crawl interpark_crawl # 인터파크 도서 크롤링
 scrapy crawl kyobo_crawl     # 교보문고 도서 크롤링
 scrapy crawl yes24_selenium  # yes24 도서 크롤링
 ```
-
+<br>
+크롤링한 값들은 mongoDB에 들어간다.<br>
+mongoDB에 들어간 값들을 확인해주기위해 Robo 3T에 접속을 해야한다.
 
 ### Robo 3T에 접속 에러가 뜬다면
  몽고DB의 값들을 확인하기 위해 Robo 3T의 서버에 접속하여 확인을 하여야하는데 포트가 설정을 해주지 않아 접속 에러가 뜨는 경우가 있다.<br>
