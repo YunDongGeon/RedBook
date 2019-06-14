@@ -31,7 +31,7 @@ Robo 3T<br>
 다운로드 링크 : https://robomongo.org/download<br>
 Webdriver<br>
 다운로드 링크 : https://sites.google.com/a/chromium.org/chromedriver/downloads
-
+*참고: webdriver는 다운로드 받은 후에 압축 해제후 C:드라이브 밑에 넣어주세요.(default)
 ### Python Install
 이 프로젝트를 실행하기위해서 install 해야하는 것들이다.
 ```bash
