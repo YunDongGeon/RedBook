@@ -56,6 +56,10 @@ scrapy crawl yes24_selenium  # yes24 도서 크롤링
 python redbook.py
 ```
 
-
+### Application 실행 확인
+어플리케이션이 정상적으로 실행되면 다음과 같은 결과가 출력된다.
+```bash
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
 
 
