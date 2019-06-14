@@ -23,6 +23,8 @@ Ajax, pymongo, Javascript, css, html
 
 ### 사용하기 위한 툴들
 프로젝트를 진행하기위하여 다운로드 해야할 Tool들이다.<br>
+VisualStudio<br>
+다운로드 링크 : https://visualstudio.microsoft.com/downloads/<br>
 Python<br>
 다운로드 링크 : www.python.org/downloads<br>
 Pycharm<br>
